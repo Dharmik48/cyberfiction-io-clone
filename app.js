@@ -87,6 +87,13 @@ gsap.to('four', {
 	},
 })
 
+gsap.to('.loader-img', {
+	rotation: 360,
+	duration: 1.5,
+	repeat: -1,
+	repeatDelay: 0.25,
+})
+
 window.addEventListener('load', e => {
 	document.body.classList.remove('loading')
 })
