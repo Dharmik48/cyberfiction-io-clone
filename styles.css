@@ -37,6 +37,16 @@ section {
 	height: 100dvh;
 }
 
+.fat {
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+.thin {
+	font-weight: 200;
+	font-size: 0.85rem;
+}
+
 canvas {
 	position: fixed;
 	left: 50%;
@@ -114,6 +124,21 @@ canvas {
 	gap: 0.75em;
 }
 
+.page {
+	padding-inline: 2em;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.left .thin:is(:first-child) {
+	margin-bottom: 1em;
+}
+
+.thin:is(:last-child) {
+	margin-top: 1em;
+}
+
 @keyframes marquee {
 	from {
 		translate: 0% 0;
@@ -149,4 +174,38 @@ canvas {
 	.right-content {
 		text-align: right;
 	}
+
+	.page {
+		flex-direction: row;
+		width: 100%;
+		max-width: 1200px;
+		justify-content: space-between;
+		margin-inline: auto;
+		align-items: center;
+	}
+
+	.fat {
+		font-weight: 800;
+		font-size: 2.75rem;
+	}
+
+	.left {
+		translate: 0 -50%;
+	}
+	.right {
+		translate: 0 50%;
+	}
+
+	.right {
+		text-align: right;
+	}
+
+	.page > .right,
+	.page > .left {
+		width: 40%;
+	}
+}
+
+body.loading {
+	background-color: red;
 }

@@ -33,9 +33,9 @@ gsap.to(frame, {
 	snap: 'frame',
 	// ease: 'none',
 	scrollTrigger: {
-		trigger: 'canvas',
+		// trigger: 'canvas',
 		start: 'top top',
-		end: '600% top',
+		end: '+=700%',
 		scrub: true,
 	},
 	onUpdate: () => {
@@ -55,4 +55,38 @@ window.addEventListener('resize', () => {
 	// canvas.height = window.innerHeight
 	// canvas.width = window.innerWidth
 	render()
+})
+
+gsap.to('.two', {
+	scrollTrigger: {
+		trigger: '.two',
+		start: 'top top',
+		end: '+=' + window.innerHeight * 1.1,
+		pin: true,
+		scrub: 1,
+	},
+})
+
+gsap.to('.three', {
+	scrollTrigger: {
+		trigger: '.three',
+		start: 'top .two',
+		end: '+=' + window.innerHeight * 1.1,
+		scrub: 1,
+		pin: true,
+	},
+})
+
+gsap.to('four', {
+	scrollTrigger: {
+		trigger: '.four',
+		start: 'top top',
+		end: '+=' + window.innerHeight * 1.1,
+		srub: 1,
+		pin: true,
+	},
+})
+
+window.addEventListener('load', e => {
+	document.body.classList.remove('loading')
 })
