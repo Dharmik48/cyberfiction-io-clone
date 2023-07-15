@@ -188,6 +188,7 @@ body.loading .loader {
 }
 
 .avatars-marquee span {
+	display: flex;
 	margin-left: -4em;
 }
 
