@@ -97,3 +97,38 @@ gsap.to('.loader-img', {
 window.addEventListener('load', e => {
 	document.body.classList.remove('loading')
 })
+
+const rgb = {
+	r: 255,
+	g: 255,
+	b: 255,
+	rT: 23,
+	gT: 16,
+	bT: 16,
+}
+
+const rgbTitle = {}
+
+const roadmap = document.querySelector('.roadmap')
+const roadmapTitle = document.querySelector('.roadmap .title')
+
+gsap.to(rgb, {
+	r: 23,
+	g: 16,
+	b: 16,
+	rT: 255,
+	gT: 255,
+	bT: 255,
+	snap: 1,
+	scrollTrigger: {
+		trigger: '.roadmap',
+		start: 'top bottom',
+		end: '+=' + window.innerHeight * 0.3,
+		scrub: true,
+	},
+	onUpdate: () => {
+		roadmapTitle.style.color = `rgb(${rgb.rT},${rgb.gT},${rgb.bT})`
+
+		roadmap.style.backgroundColor = `rgb(${rgb.r},${rgb.g},${rgb.b})`
+	},
+})
