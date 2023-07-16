@@ -203,14 +203,14 @@ body.loading .loader {
 .roadmap > .title {
 	color: rgb(23, 16, 16);
 	text-align: center;
-	padding-inline: 2em;
+	padding: 4em 2em;
 }
 
 .cards {
 	padding-inline: 2em;
 	display: flex;
 	align-items: center;
-	/* justify-content: center; */
+	justify-content: center;
 	flex-wrap: wrap;
 	gap: 1em;
 	margin-inline: auto;
@@ -341,5 +341,9 @@ body.loading .loader {
 
 	.roadmap > .title {
 		padding-block: 5em;
+	}
+
+	.cards {
+		justify-content: start;
 	}
 }
