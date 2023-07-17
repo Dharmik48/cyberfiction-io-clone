@@ -166,11 +166,12 @@ body.loading .loader {
 	padding-inline: 2em;
 }
 
-.avatars section > div > div:not(:last-child) {
+.top > div:not(:last-child) {
 	text-align: center;
 }
 
-.avatars .top div:last-child {
+.top div:last-child,
+.about div:last-child {
 	display: flex;
 	flex-direction: column;
 	text-align: left;
@@ -197,13 +198,18 @@ body.loading .loader {
 }
 
 .roadmap {
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(23, 16, 16);
+	padding-block-end: 4em;
 }
 
-.roadmap > .title {
-	color: rgb(23, 16, 16);
+section > .title {
+	color: rgb(255, 255, 255);
 	text-align: center;
 	padding: 4em 2em;
+}
+
+.final > .title {
+	padding-block-end: 0;
 }
 
 .cards {
@@ -227,6 +233,74 @@ body.loading .loader {
 	height: 13.5rem;
 }
 
+.final {
+	display: flex;
+	flex-direction: column;
+	gap: 5em;
+	color: white;
+	border-top: 1px white dashed;
+	background-color: rgb(23, 16, 16);
+	padding-inline: 2em;
+}
+
+.dev img {
+	max-width: 100%;
+}
+
+.dev {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	text-align: center;
+	margin-inline: auto;
+	max-width: 40rem;
+}
+
+.vertical-line {
+	margin-inline: auto;
+	height: 7rem;
+	width: 1px;
+	background-color: white;
+}
+
+.about {
+	margin-inline: auto;
+}
+
+footer {
+	text-align: center;
+	padding-inline: 2em;
+	margin-bottom: 2em;
+}
+
+footer > div:not(.socials) {
+	font-size: 5rem;
+	font-weight: 800;
+	color: transparent;
+	-webkit-text-stroke: 1px white;
+	font-style: italic;
+	line-height: 1;
+	margin-block: 2rem;
+}
+
+.socials {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1em;
+}
+
+.btn {
+	margin-inline: auto;
+	color: white;
+	text-decoration: none;
+	border: 1px solid white;
+	/* padding: 0.35em 3em; */
+	padding-block: 0.35em;
+	border-radius: 2em;
+	width: 200px;
+}
+
 @keyframes marquee {
 	from {
 		translate: 0% 0;
@@ -236,7 +310,30 @@ body.loading .loader {
 	}
 }
 
+@media (width > 926px) {
+	footer > div:not(.socials) {
+		margin-inline: auto;
+		width: 100%;
+		max-width: 1600px;
+		font-size: 8rem;
+	}
+}
+
+@media (width > 1486px) {
+	footer > div:not(.socials) {
+		font-size: 12rem;
+	}
+}
+
 @media (orientation: landscape) {
+	.socials {
+		flex-direction: row;
+	}
+
+	.btn {
+		margin: 0;
+	}
+
 	canvas {
 		height: 100dvh;
 	}
@@ -281,7 +378,8 @@ body.loading .loader {
 
 	/* .roadmap .title {} */
 
-	.avatars section {
+	.avatars section,
+	.final .top {
 		width: 100%;
 		max-width: 1200px;
 		margin-inline: auto;
@@ -308,7 +406,8 @@ body.loading .loader {
 		width: 40%;
 	}
 
-	.avatars .top > div:last-child {
+	.top > div:last-child,
+	.about > div:last-child {
 		margin-top: 2em;
 		flex-direction: row;
 		justify-content: center;
@@ -323,7 +422,8 @@ body.loading .loader {
 		font-size: 3.5rem;
 	}
 
-	.avatars .top > div:last-child div {
+	.top > div:last-child div,
+	.about > div:last-child div {
 		width: 40%;
 	}
 
@@ -339,11 +439,15 @@ body.loading .loader {
 		width: 450px;
 	}
 
-	.roadmap > .title {
+	section > .title {
 		padding-block: 5em;
 	}
 
-	.cards {
+	.roadmap {
+		padding-bottom: 5em;
+	}
+
+	.roadmap .cards {
 		justify-content: start;
 	}
 }
