@@ -11,6 +11,7 @@ body {
 	font-family: 'Noto Sans KR', sans-serif;
 	text-transform: uppercase;
 	background-color: #f1f1f1;
+	overflow-x: hidden;
 }
 
 nav {
@@ -245,9 +246,11 @@ section > .title {
 
 .dev img {
 	max-width: 100%;
+	z-index: 2;
 }
 
 .dev {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
@@ -301,12 +304,51 @@ footer > div:not(.socials) {
 	width: 200px;
 }
 
+.text-spin {
+	overflow-x: hidden;
+	color: transparent;
+	-webkit-text-stroke: 1px white;
+	font-size: 5rem;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	white-space: nowrap;
+	font-weight: 800;
+	top: 10%;
+	left: -2em;
+	line-height: 0.9;
+}
+
+.first-line,
+.second-line,
+.third-line {
+	display: flex;
+}
+
+.first-line > div {
+	animation: marquee 20s infinite reverse;
+}
+
+.second-line > div {
+	animation: marquee 25s infinite;
+}
+
+.third-line > div {
+	animation: marquee 25s infinite reverse;
+}
+
 @keyframes marquee {
 	from {
 		translate: 0% 0;
 	}
 	to {
 		translate: -100% 0;
+	}
+}
+
+@media (width> 815px) {
+	.text-spin {
+		font-size: 7rem;
 	}
 }
 
@@ -326,6 +368,11 @@ footer > div:not(.socials) {
 }
 
 @media (orientation: landscape) {
+	.text-spin {
+		left: -100%;
+		font-size: 8rem;
+	}
+
 	.socials {
 		flex-direction: row;
 	}
