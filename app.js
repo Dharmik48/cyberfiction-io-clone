@@ -33,9 +33,9 @@ gsap.to(frame, {
 	snap: 'frame',
 	// ease: 'none',
 	scrollTrigger: {
-		trigger: 'canvas',
+		// trigger: 'canvas',
 		start: 'top top',
-		end: '600% top',
+		end: '+=700%',
 		scrub: true,
 	},
 	onUpdate: () => {
@@ -55,4 +55,80 @@ window.addEventListener('resize', () => {
 	// canvas.height = window.innerHeight
 	// canvas.width = window.innerWidth
 	render()
+})
+
+gsap.to('.two', {
+	scrollTrigger: {
+		trigger: '.two',
+		start: 'top top',
+		end: '+=' + window.innerHeight * 1.1,
+		pin: true,
+		scrub: 1,
+	},
+})
+
+gsap.to('.three', {
+	scrollTrigger: {
+		trigger: '.three',
+		start: 'top .two',
+		end: '+=' + window.innerHeight * 1.1,
+		scrub: 1,
+		pin: true,
+	},
+})
+
+gsap.to('four', {
+	scrollTrigger: {
+		trigger: '.four',
+		start: 'top top',
+		end: '+=' + window.innerHeight * 1.1,
+		srub: 1,
+		pin: true,
+	},
+})
+
+gsap.to('.loader-img', {
+	rotation: 360,
+	duration: 1.5,
+	repeat: -1,
+	repeatDelay: 0.25,
+})
+
+window.addEventListener('load', e => {
+	document.body.classList.remove('loading')
+})
+
+const rgb = {
+	r: 255,
+	g: 255,
+	b: 255,
+	rT: 23,
+	gT: 16,
+	bT: 16,
+}
+
+const rgbTitle = {}
+
+const roadmap = document.querySelector('.roadmap')
+const roadmapTitle = document.querySelector('.roadmap .title')
+
+gsap.to(rgb, {
+	r: 23,
+	g: 16,
+	b: 16,
+	rT: 255,
+	gT: 255,
+	bT: 255,
+	snap: 1,
+	scrollTrigger: {
+		trigger: '.roadmap',
+		start: 'top bottom',
+		end: '+=' + window.innerHeight * 0.3,
+		scrub: true,
+	},
+	onUpdate: () => {
+		roadmapTitle.style.color = `rgb(${rgb.rT},${rgb.gT},${rgb.bT})`
+
+		roadmap.style.backgroundColor = `rgb(${rgb.r},${rgb.g},${rgb.b})`
+	},
 })

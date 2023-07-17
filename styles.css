@@ -34,7 +34,17 @@ nav a {
 }
 
 section {
-	height: 100dvh;
+	min-height: 100dvh;
+}
+
+.fat {
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+.thin {
+	font-weight: 200;
+	font-size: 0.85rem;
 }
 
 canvas {
@@ -114,6 +124,183 @@ canvas {
 	gap: 0.75em;
 }
 
+.page {
+	padding-inline: 2em;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.page .left .thin:is(:first-child) {
+	margin-bottom: 1em;
+}
+
+.page .thin:is(:last-child) {
+	margin-top: 1em;
+}
+
+.loader {
+	display: none;
+}
+
+body.loading .loader {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	background-color: #f1f1f1;
+}
+
+.loader img {
+	width: 7em;
+}
+
+.avatars {
+	overflow-x: hidden;
+	position: relative;
+	background-color: white;
+}
+
+.avatars section .top {
+	padding-block: 4em;
+	padding-inline: 2em;
+}
+
+.top > div:not(:last-child) {
+	text-align: center;
+}
+
+.top div:last-child,
+.about div:last-child {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+.avatars-marquee {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+}
+
+.avatars-wrapper {
+	animation: marquee 20s linear infinite;
+	display: flex;
+}
+
+.avatars-marquee span {
+	display: flex;
+	margin-left: -4em;
+}
+
+.avatars-marquee img {
+	width: 300px;
+}
+
+.roadmap {
+	background-color: rgb(23, 16, 16);
+	padding-block-end: 4em;
+}
+
+section > .title {
+	color: rgb(255, 255, 255);
+	text-align: center;
+	padding: 4em 2em;
+}
+
+.final > .title {
+	padding-block-end: 0;
+}
+
+.cards {
+	padding-inline: 2em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1em;
+	margin-inline: auto;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	border-radius: 0.75em;
+	padding: 2em;
+	background-color: #f1f1f1;
+	width: min(23rem, 100%);
+	height: 13.5rem;
+}
+
+.final {
+	display: flex;
+	flex-direction: column;
+	gap: 5em;
+	color: white;
+	border-top: 1px white dashed;
+	background-color: rgb(23, 16, 16);
+	padding-inline: 2em;
+}
+
+.dev img {
+	max-width: 100%;
+}
+
+.dev {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	text-align: center;
+	margin-inline: auto;
+	max-width: 40rem;
+}
+
+.vertical-line {
+	margin-inline: auto;
+	height: 7rem;
+	width: 1px;
+	background-color: white;
+}
+
+.about {
+	margin-inline: auto;
+}
+
+footer {
+	text-align: center;
+	padding-inline: 2em;
+	margin-bottom: 2em;
+}
+
+footer > div:not(.socials) {
+	font-size: 5rem;
+	font-weight: 800;
+	color: transparent;
+	-webkit-text-stroke: 1px white;
+	font-style: italic;
+	line-height: 1;
+	margin-block: 2rem;
+}
+
+.socials {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1em;
+}
+
+.btn {
+	margin-inline: auto;
+	color: white;
+	text-decoration: none;
+	border: 1px solid white;
+	/* padding: 0.35em 3em; */
+	padding-block: 0.35em;
+	border-radius: 2em;
+	width: 200px;
+}
+
 @keyframes marquee {
 	from {
 		translate: 0% 0;
@@ -123,7 +310,30 @@ canvas {
 	}
 }
 
+@media (width > 926px) {
+	footer > div:not(.socials) {
+		margin-inline: auto;
+		width: 100%;
+		max-width: 1600px;
+		font-size: 8rem;
+	}
+}
+
+@media (width > 1486px) {
+	footer > div:not(.socials) {
+		font-size: 12rem;
+	}
+}
+
 @media (orientation: landscape) {
+	.socials {
+		flex-direction: row;
+	}
+
+	.btn {
+		margin: 0;
+	}
+
 	canvas {
 		height: 100dvh;
 	}
@@ -148,5 +358,96 @@ canvas {
 
 	.right-content {
 		text-align: right;
+	}
+
+	.page {
+		flex-direction: row;
+		width: 100%;
+		max-width: 1200px;
+		justify-content: space-between;
+		margin-inline: auto;
+		align-items: center;
+	}
+
+	.cards,
+	.roadmap > .title {
+		width: 100%;
+		max-width: 1200px;
+		margin-inline: auto;
+	}
+
+	/* .roadmap .title {} */
+
+	.avatars section,
+	.final .top {
+		width: 100%;
+		max-width: 1200px;
+		margin-inline: auto;
+	}
+
+	.fat {
+		font-weight: 800;
+		font-size: 2.75rem;
+	}
+
+	.left {
+		translate: 0 -50%;
+	}
+	.right {
+		translate: 0 50%;
+	}
+
+	.right {
+		text-align: right;
+	}
+
+	.page > .right,
+	.page > .left {
+		width: 40%;
+	}
+
+	.top > div:last-child,
+	.about > div:last-child {
+		margin-top: 2em;
+		flex-direction: row;
+		justify-content: center;
+		gap: 2em;
+	}
+
+	.avatars .thin {
+		font-size: 0.85rem;
+	}
+
+	.avatars .fat {
+		font-size: 3.5rem;
+	}
+
+	.top > div:last-child div,
+	.about > div:last-child div {
+		width: 40%;
+	}
+
+	.avatars section .top {
+		padding-block: 10em;
+	}
+
+	.avatars-marquee span {
+		margin-left: -8em;
+	}
+
+	.avatars-marquee img {
+		width: 450px;
+	}
+
+	section > .title {
+		padding-block: 5em;
+	}
+
+	.roadmap {
+		padding-bottom: 5em;
+	}
+
+	.roadmap .cards {
+		justify-content: start;
 	}
 }
